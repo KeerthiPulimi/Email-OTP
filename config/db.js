@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const User = require('../models/User'); // Import the User model
 
-const MONGO_URI = "mongodb+srv://pulimikeerthi155:Keerthi@1@cluster0.3ksbq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const MONGO_URI = "mongodb+srv://pulimikeerthi155:Keerthi%401@cluster0.3ksbq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
 
 const connectDB = async () => {
     try {

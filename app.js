@@ -9,16 +9,17 @@ const app = express();
 app.use(express.json()); // Middleware to parse JSON
 
 
-app.use(session({
-        secret: 'supersecretkey',
-        resave: false,
-        saveUninitializednode : true,
-        cookie: {secure:false}
-}));
+// app.use(session({
+//         secret: 'supersecretkey',
+//         resave: false,
+//         saveUninitializednode : true,
+//         cookie: {secure:false}
+// }));
 
-const authRoutes = require('./routes/authRoutes');
+// const authRoutes = require('./routes/authRoutes');
 
-app.use('/api/auth',authRoutes);
+// app.use('/api/auth',authRoutes);
+
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 

@@ -12,7 +12,7 @@ app.use(express.json()); // Middleware to parse JSON
 app.use(session({
         secret: 'supersecretkey',
         resave: false,
-        saveUninitilized: true,
+        saveUninitializednode : true,
         cookie: {secure:false}
 }));
 

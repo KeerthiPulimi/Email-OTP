@@ -1,16 +1,16 @@
 
+
 const express = require('express');
-const { register, verifyOTP, resendOTP, login, logout, dashboard } = require('../controllers/authController');
-const authMiddleware = require('../middleware/authmiddleware');
+const authController = require('../controllers/authControllers');
+const authMiddleware = require('../middleware/authmiddleware'); // Correct import
 
 const router = express.Router();
 
-router.post('/register', register);
-router.post('/verify-otp', verifyOTP);
-router.post('/resend-otp', resendOTP);
-router.post('/login', login);
-router.post('/logout', logout);
-router.get('/dashboard', authMiddleware, dashboard);
+router.post('/register', authController.register);
+router.post('/verify-otp', authController.verifyOTP);
+router.post('/resend-otp', authController.resendOTP);
+router.post('/login', authController.login);
+router.post('/logout', authController.logout);
+router.get('/dashboard', authMiddleware, authController.dashboard); // Protected route
 
 module.exports = router;
-

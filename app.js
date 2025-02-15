@@ -1,25 +1,26 @@
 
 const express = require('express');
 const connectDB = require('./config/db');
-const session = require('express-session');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+
 // Connect to MongoDB
 connectDB();
 
 const app = express();
-app.use(express.json()); // Middleware to parse JSON
 
-
-app.use(session({
-        secret: 'supersecretkey',
-        resave: false,
-        saveUninitializednode : true,
-        cookie: {secure:false}
+app.use(cors({
+    origin: 'http://localhost:5173',
+    methods: 'GET,POST',
+    allowedHeaders: 'Content-Type,Authorization',
+    credentials: true,
 }));
 
-const authRoutes = require('./routes/authRoutes');
+app.use(cookieParser());
+app.use(express.json()); // Middleware to parse JSON
 
+const authRoutes  = require('./routes/authRoutes');
 app.use('/api/auth',authRoutes);
-
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
